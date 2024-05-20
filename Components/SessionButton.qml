@@ -83,17 +83,6 @@ Item {
             visible: false
         }
 
-        contentItem: Text {
-            id: displayedItem
-            text: (config.TranslateSession || (textConstantSession + ":")) + " " + selectSession.currentText
-            color: root.palette.text
-            verticalAlignment: Text.AlignVCenter
-            anchors.left: parent.left
-            anchors.leftMargin: 3
-            font.pointSize: root.font.pointSize * 0.8
-            Keys.onReleased: parent.popup.open()
-        }
-
         background: Rectangle {
             color: "transparent"
             border.width: parent.visualFocus ? 1 : 0

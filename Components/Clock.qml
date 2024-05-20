@@ -49,28 +49,16 @@ Column {
         }
     }
 
-    Label {
-        id: dateLabel
-        anchors.horizontalCenter: parent.horizontalCenter
-        color: root.palette.text
-        renderType: Text.QtRendering
-        function updateTime() {
-            text = new Date().toLocaleDateString(Qt.locale(config.Locale), config.DateFormat == "short" ? Locale.ShortFormat : config.DateFormat !== "" ? config.DateFormat : Locale.LongFormat)
-        }
-    }
-
     Timer {
         interval: 1000
         repeat: true
         running: true
         onTriggered: {
-            dateLabel.updateTime()
             timeLabel.updateTime()
         }
     }
 
     Component.onCompleted: {
-        dateLabel.updateTime()
         timeLabel.updateTime()
     }
 }
